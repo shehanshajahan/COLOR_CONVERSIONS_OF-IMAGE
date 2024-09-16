@@ -68,7 +68,7 @@ cv2.imshow('Shehan',image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
-
+![Screenshot 2024-09-16 085808](https://github.com/user-attachments/assets/30d4b255-24b9-4f0b-8838-1802ae01ec47)
 
 ### ii)Draw Shapes and Add Text
 1) Draw a line from the top-left to the bottom-right of the image.
