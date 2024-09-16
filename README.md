@@ -174,39 +174,104 @@ cv2.destroyAllWindows()
 ```
 ![image](https://github.com/user-attachments/assets/eb79bd45-d1b2-47d9-986b-c3f94fae8357)
 
-4. 
+4.  Convert the HSV image back to RGB and display it.
+```
+import cv2
+image = cv2.imread('Urban.jpg',1)
+image = cv2.resize(image,(300,200))
+cv2.imshow('Shehan',image)
+RGB = cv2.cvtColor(image,cv2.COLOR_HSV2BGR)
+cv2.imshow('RGB',RGB)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/a1681d92-bc07-468a-ae56-178679ba6752)
+
 
 ### iv)Access and Manipulate Image Pixels
-<br>
-<br>
+1. Access and print the value of the pixel at coordinates (100, 100)
+```
+pixel_value = image[100, 100]
+print(f"Pixel value at (100, 100): {pixel_value}")
+```
+![image](https://github.com/user-attachments/assets/2683b7d5-27fa-4037-8edb-5fde746d8344)
+
+2. Modify the color of the pixel at (200, 200) to white.
+```
+import cv2
+image = cv2.imread('urban.jpg',1)
+image = cv2.resize(image,(400,300))
+cv2.imshow('Orginal',image)
+image[200, 200] = [255, 255, 255] 
+cv2.imshow('Modified', image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/52535cda-2a11-49a9-b18c-35b94896788b)
 
 ### v)Image Resizing
-<br>
-<br>
+Resize the original image to half its size and display it.
+```
+cv2.imshow('Orginal',image)
+resized_image = cv2.resize(image, (image.shape[1] // 2, image.shape[0] // 2))
+cv2.imshow('Resized', resized_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/7851e567-a5e7-4a83-ac0f-531c8a277aa4)
 
 ### vi)Image Cropping
-<br>
-<br>
+Crop a region of interest (ROI) from the image (e.g., a 100x100 pixel area starting at (50, 50)) and display it.
+```
+import cv2
+image = cv2.imread('Urban.jpg',1)
+image = cv2.resize(image,(400,300))
+x, y = 50, 50
+width, height = 100, 100
+roi = image[y:y + height, x:x + width]
+cv2.imshow('Cropped', roi)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/f19ca78e-3b2a-467e-bc09-1e38d3f830cb)
 
 ### vii)Image Flipping
-<br>
-<br>
+1. Flip the original image horizontally and display it.
+```
+import cv2
+image = cv2.imread("Urban.jpg")
+image = cv2.resize(image,(300,200))
+res=cv2.rotate(image,cv2.ROTATE_180)
+cv2.imshow('Orginal',image)
+cv2.imshow('Flipped', res)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+![image](https://github.com/user-attachments/assets/daa836e0-29ce-49be-82eb-3a4ded9ea668)
+
+2. Flip the original image vertically and display it.
+```
+import cv2
+image = cv2.imread("Urban.jpg")
+image = cv2.resize(image,(300,200))
+res=cv2.rotate(image,cv2.ROTATE_90_CLOCKWISE)
+cv2.imshow('Orginal',image)
+cv2.imshow('Flipped', res)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+
+![image](https://github.com/user-attachments/assets/65a531f0-c310-4e2f-af61-eccd61de0986)
 
 ### viii)Write and Save the Modified Image
-<br>
-<br>
-
-
-
-
-
+Save the final modified image to your local directory.
+```
+import cv2
+img = cv2.imread("naturek.jpg")
+img = cv2.resize(img,(300,200))
+cv2.imwrite('nature_pic.jpg',img)
+```
+![image](https://github.com/user-attachments/assets/704f1027-1359-48b1-bddf-639d4360d7fc)
 
 ## Result:
 Thus the images are read, displayed, and written ,and color conversion was performed  successfully using the python program.
-
-
-
-
-
-
-
