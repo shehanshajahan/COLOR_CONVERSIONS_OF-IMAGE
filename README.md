@@ -1,4 +1,4 @@
-# COLOR_CONVERSIONS_OF-IMAGE
+![image](https://github.com/user-attachments/assets/bd9378cd-cf01-489b-9a9e-6216bec7776b)# COLOR_CONVERSIONS_OF-IMAGE
 ## AIM
 Write a Python program using OpenCV that performs the following tasks:
 
@@ -61,231 +61,189 @@ o	Save the final modified image to your local directory.
 
 ### i)Read and Display an Image
 ```
+import matplotlib.pyplot as plt
 import cv2
-image=cv2.imread('Urban.jpg',1)
-image = cv2.resize(image, (400, 300))
-cv2.imshow('Shehan',image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+img=cv2.imread('beauty.jpg')
+plt.imshow(img)
+plt.show()
 ```
-![Screenshot 2024-09-16 085808](https://github.com/user-attachments/assets/30d4b255-24b9-4f0b-8838-1802ae01ec47)
+![image](https://github.com/user-attachments/assets/dfdc0b41-efd0-45f7-a202-1e3fc04c47ac)
+
 
 ### ii)Draw Shapes and Add Text
 1) Draw a line from the top-left to the bottom-right of the image.
 ```
-import cv2
-image = cv2.imread("Urban.jpg")
-image = cv2.resize(image, (400, 300))
-res = cv2.line(image, (0, 0), (image.shape[1], image.shape[0]), (23,123,231), 10)
-cv2.imshow('Shehan', res)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+res=cv2.line(img,(0,0),(600,400),(205,100,250),10)
+plt.imshow(res)
+plt.axis('off')
+plt.show()
 ```
-![Screenshot 2024-09-16 085822](https://github.com/user-attachments/assets/ac2607fe-cc04-48cd-beb9-1f00e201fd74)
+![image](https://github.com/user-attachments/assets/c2dbced5-3cc4-4f2c-87d5-26c30c4cc785)
+
 
 
 2) Draw a circle at the center of the image.
 ```
-import cv2
-image = cv2.imread("Urban.jpg")
-image = cv2.resize(image, (400, 300))
-height, width, _ = image.shape
-center_coordinates = (width // 2, height // 2)
-res = cv2.circle(image, center_coordinates, 120, (21, 55, 122), 10)
-cv2.imshow('Shehan', res)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+imc=cv2.imread('beauty.jpg')
+resc=cv2.circle(imc,(250,250),100,(250,195,280),15)
+plt.imshow(resc)
+plt.axis('on')
+plt.show()
 ```
-![Screenshot 2024-09-16 085838](https://github.com/user-attachments/assets/2adc4e9d-ad52-45b8-adca-ab7cdf39b207)
+![image](https://github.com/user-attachments/assets/7fe7ab28-d8e5-4488-96fc-850a8f8ce487)
+
 
 
 3.Draw a rectangle around a specific region of interest in the image.
 ```
-import cv2
-image = cv2.imread("Urban.jpg")
-image = cv2.resize(image, (400, 300))
-start = (150, 100)
-stop = (300, 200)
-color = (12, 200, 10)
-thickness = 10           
-res_img = cv2.rectangle(image, start, stop, color, thickness)
-cv2.imshow('Shehan', res_img)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+imr=cv2.imread('beauty.jpg')
+start=(50,50)
+stop=(300,300)
+color=(250,250,200)
+thick=15
+resr=cv2.rectangle(imr,start,stop,color,thick)
+plt.imshow(resr)
+plt.show()
 ```
-![Screenshot 2024-09-16 085940](https://github.com/user-attachments/assets/1d46fb1c-8971-4738-ad7c-cb5cdadec593)
+![image](https://github.com/user-attachments/assets/a934f228-14ce-4644-a6c6-04d4124d3070)
 
 
 
 4. Add the text "OpenCV Drawing" at the top-left corner of the image.
 ```
-import cv2
-image = cv2.imread("Urban.jpg")
-image = cv2.resize(image, (400, 300))
+imt = cv2.imread("beauty.jpg")
 text = "OpenCV Drawing"
 position = (10, 50)
-font = cv2.FONT_HERSHEY_SIMPLEX
+font = cv2.FONT_HERSHEY_COMPLEX_SMALL
 font_scale = 1
-color = (155, 245, 220) 
-thickness = 2
-res = cv2.putText(image, text, position, font, font_scale, color, thickness, cv2.LINE_AA)
-cv2.imshow('Shehan', res)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+color = (150, 155, 255) 
+thickness = 3
+rest = cv2.putText(imt, text, position, font, font_scale, color, thickness, cv2.LINE_AA)
+plt.imshow(rest)
+plt.show()
+
 ```
-![Screenshot 2024-09-16 090318](https://github.com/user-attachments/assets/2cdd5624-395a-4726-b767-ece1b176b508)
+![image](https://github.com/user-attachments/assets/0c461c01-9afb-42f0-803d-826e707e53cb)
+
 
 
 
 ### iii)Image Color Conversion
 1. Convert the image from RGB to HSV and display it
 ```
-import cv2
-image = cv2.imread('Urban.jpg',1)
-image = cv2.resize(image,(300,200))
-cv2.imshow('Orginal',image)
-hsv = cv2.cvtColor(image,cv2.COLOR_RGB2HSV)
-cv2.imshow('Converted',hsv)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+image=cv2.imread("beauty.jpg")
+imhsv=cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+plt.imshow(imhsv)
+plt.show()
 ```
-![Screenshot 2024-09-16 092556](https://github.com/user-attachments/assets/1afd54ae-75c3-4999-92bd-803fbb137117)
+![image](https://github.com/user-attachments/assets/adec2407-9e58-4574-bc18-18ea19e9fcd7)
 
 
 2. Convert the image from RGB to GRAY and display it.
 
 ```
-import cv2
-image = cv2.imread('Urban.jpg',1)
-image = cv2.resize(image,(300,200))
-cv2.imshow('RGB',image)
-gray = cv2.cvtColor(image,cv2.COLOR_RGB2GRAY)
-cv2.imshow('Gray',gray)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+image1=cv2.imread("beauty.jpg",0)
+imgs=cv2.cvtColor(image1, 0)
+plt.imshow(imgs)
+plt.show()
 ```
-![Screenshot 2024-09-16 092827](https://github.com/user-attachments/assets/aba5f668-3fa1-428a-9459-1d0578ce2b6d)
+![image](https://github.com/user-attachments/assets/64d186cd-0115-4dd1-ba3e-04b199ffe3cc)
+
 
 
 3. Convert the image from RGB to YCrCb and display it.
 ```
-import cv2
-image = cv2.imread('Urban.jpg',1)
-image = cv2.resize(image,(300,200))
-cv2.imshow('Shehan',image)
-YCrCb = cv2.cvtColor(image, cv2.COLOR_BGR2YCrCb)
-cv2.imshow('YCrCb',YCrCb)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+imrgb=cv2.cvtColor(image,cv2.COLOR_HSV2BGR)
+plt.imshow(imrgb)
+plt.show()
 ```
-![image](https://github.com/user-attachments/assets/eb79bd45-d1b2-47d9-986b-c3f94fae8357)
-
-
-4.  Convert the HSV image back to RGB and display it.
-```
-import cv2
-image = cv2.imread('Urban.jpg',1)
-image = cv2.resize(image,(300,200))
-cv2.imshow('Shehan',image)
-RGB = cv2.cvtColor(image,cv2.COLOR_HSV2BGR)
-cv2.imshow('RGB',RGB)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-```
-![image](https://github.com/user-attachments/assets/a1681d92-bc07-468a-ae56-178679ba6752)
-
+![image](https://github.com/user-attachments/assets/38083ba7-9c6a-429c-86c3-58471d807174)
 
 
 ### iv)Access and Manipulate Image Pixels
 1. Access and print the value of the pixel at coordinates (100, 100)
 ```
-pixel_value = image[100, 100]
-print(f"Pixel value at (100, 100): {pixel_value}")
+im2=cv2.imread('beauty.jpg')
+p=im2[100,100]
+p
 ```
-![image](https://github.com/user-attachments/assets/2683b7d5-27fa-4037-8edb-5fde746d8344)
+![image](https://github.com/user-attachments/assets/e57c28a8-b1f6-4d78-98f5-e3278fb53764)
+
 
 
 2. Modify the color of the pixel at (200, 200) to white.
 ```
-import cv2
-image = cv2.imread('urban.jpg',1)
-image = cv2.resize(image,(400,300))
-cv2.imshow('Orginal',image)
-image[200, 200] = [255, 255, 255] 
-cv2.imshow('Modified', image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+imaw=cv2.imread("beauty.jpg")
+for i in range(100,250):
+    for j in range(100,250):
+        imaw[i,j]=225
+plt.imshow(imaw,cmap="gray")
+plt.show()
 ```
-![image](https://github.com/user-attachments/assets/52535cda-2a11-49a9-b18c-35b94896788b)
+![image](https://github.com/user-attachments/assets/9fcbb7f3-8437-4879-a2eb-a5cc33aefbed)
+
 
 
 ### v)Image Resizing
 Resize the original image to half its size and display it.
 ```
-cv2.imshow('Orginal',image)
-resized_image = cv2.resize(image, (image.shape[1] // 2, image.shape[0] // 2))
-cv2.imshow('Resized', resized_image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+ime=cv2.imread('beauty.jpg')
+ime.shape
 ```
-![image](https://github.com/user-attachments/assets/7851e567-a5e7-4a83-ac0f-531c8a277aa4)
+![image](https://github.com/user-attachments/assets/ecb61238-611c-4b06-9bae-f78dfdf052c5)
+```
+image_resize=cv2.resize(ime,(150,150))
+image_resize.shape
+```
+![image](https://github.com/user-attachments/assets/424c628b-5be5-445c-b528-acb19eda96c2)
+
 
 
 ### vi)Image Cropping
 Crop a region of interest (ROI) from the image (e.g., a 100x100 pixel area starting at (50, 50)) and display it.
 ```
-import cv2
-image = cv2.imread('Urban.jpg',1)
-image = cv2.resize(image,(400,300))
-x, y = 50, 50
-width, height = 100, 100
-roi = image[y:y + height, x:x + width]
-cv2.imshow('Cropped', roi)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+imcr=cv2.imread("beauty.jpg")
+r1=imcr[0:250,0:250]
+cv2.imwrite('CR1.jpg',r1)
+imgc1=cv2.imread("CR1.jpg")
+plt.imshow(imgc1)
+plt.show()
 ```
-![image](https://github.com/user-attachments/assets/f19ca78e-3b2a-467e-bc09-1e38d3f830cb)
+![image](https://github.com/user-attachments/assets/0d012913-c841-43a6-9eef-4a687fb395eb)
+
+
 
 
 ### vii)Image Flipping
 1. Flip the original image horizontally and display it.
 ```
-import cv2
-image = cv2.imread("Urban.jpg")
-image = cv2.resize(image,(300,200))
-res=cv2.rotate(image,cv2.ROTATE_180)
-cv2.imshow('Orginal',image)
-cv2.imshow('Flipped', res)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+imageho = cv2.imread("beauty.jpg")
+resho=cv2.rotate(imageho,cv2.ROTATE_180)
+plt.imshow(resho)
+plt.show()
 ```
-![image](https://github.com/user-attachments/assets/daa836e0-29ce-49be-82eb-3a4ded9ea668)
+![image](https://github.com/user-attachments/assets/a02499f3-8f0d-4d49-a44d-7d3a9704c529)
+
 
 
 2. Flip the original image vertically and display it.
 ```
-import cv2
-image = cv2.imread("Urban.jpg")
-image = cv2.resize(image,(300,200))
-res=cv2.rotate(image,cv2.ROTATE_90_CLOCKWISE)
-cv2.imshow('Orginal',image)
-cv2.imshow('Flipped', res)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+imageve = cv2.imread("beauty.jpg")
+resve=cv2.rotate(imageve,cv2.ROTATE_90_CLOCKWISE)
+plt.imshow(resve)
+plt.show()
 ```
+![image](https://github.com/user-attachments/assets/e2b4e179-7011-4500-aa5b-9a59328c4ad2)
 
-![image](https://github.com/user-attachments/assets/65a531f0-c310-4e2f-af61-eccd61de0986)
 
 
 ### viii)Write and Save the Modified Image
 Save the final modified image to your local directory.
 ```
-import cv2
-img = cv2.imread("naturek.jpg")
-img = cv2.resize(img,(300,200))
-cv2.imwrite('nature_pic.jpg',img)
+cv2.imwrite('Saved.jpg',resve)
 ```
-![image](https://github.com/user-attachments/assets/704f1027-1359-48b1-bddf-639d4360d7fc)
+![image](https://github.com/user-attachments/assets/11ba08ea-1e42-4312-bd70-3ab32130e989)
+
 
 
 ## Result:
