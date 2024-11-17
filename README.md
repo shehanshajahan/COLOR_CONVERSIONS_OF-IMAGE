@@ -1,4 +1,6 @@
 # COLOR_CONVERSIONS_OF-IMAGE
+## Developed By: SHEHAN SHAJAHAN
+## Register Number: 212223240154
 ## AIM
 Write a Python program using OpenCV that performs the following tasks:
 
@@ -164,11 +166,6 @@ plt.show()
 ```
 cv2.imwrite('Saved.jpg',resve)
 ```
-
-
-## Developed By: Prajin S
-## Register Number: 212223230151
-
 
 ## Output:
 
